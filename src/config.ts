@@ -62,17 +62,7 @@ const config: IConfig = {
 
 	// Prompt Moderation
 	promptModerationEnabled: getEnvBooleanWithDefault("PROMPT_MODERATION_ENABLED", false), // Default: false
-	promptModerationBacklistedCategories: getEnvStringArrayWithDefault("PROMPT_MODERATION_BACKLISTED_CATEGORIES", [
-		? JSON.parse(process.env.PROMPT_MODERATION_BACKLISTED_CATEGORIES.replace(/'/g, '"')) || [
-		"hate",
-		"hate/threatening",
-		"self-harm",
-		"sexual",
-		"sexual/minors",
-		"violence",
-		"violence/graphic"
-	]), // Default: ["hate", "hate/threatening", "self-harm", "sexual", "sexual/minors", "violence", "violence/graphic"]
-		: ["hate", "hate/threatening", "self-harm", "sexual", "sexual/minors", "violence", "violence/graphic"],
+	promptModerationBacklistedCategories: getEnvStringArrayWithDefault("PROMPT_MODERATION_BACKLISTED_CATEGORIES", ["hate", "hate/threatening", "self-harm", "sexual", "sexual/minors", "violence", "violence/graphic"]),
 
 	// AWS
 	awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID || "", // Default: ""
